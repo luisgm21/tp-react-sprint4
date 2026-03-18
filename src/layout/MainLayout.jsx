@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import { Outlet } from 'react-router-dom'
@@ -6,8 +6,25 @@ import CartModal from '../components/featureMovies/CartModal'
 import { NAV_LINKS } from '../router/navigationConfig'
 
 const MainLayout = () => {
-  const [cartItems, setCartItems] = useState([])
   const [isCartOpen, setIsCartOpen] = useState(false)
+
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('cartItems')
+      return savedCart ? JSON.parse(savedCart) : []
+    } catch (error) {
+      console.error('Error al leer carrito de localStorage:', error)
+      return []
+    }
+  })
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems))
+    } catch (error) {
+      console.error('Error al guardar carrito en localStorage:', error)
+    }
+  }, [cartItems])
 
   const handleOpenCart = () => setIsCartOpen(true)
   const handleCloseCart = () => setIsCartOpen(false)
