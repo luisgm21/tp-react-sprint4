@@ -1,4 +1,5 @@
-import AllRoutes from "./router"
+import AllRoutes from "./router/Index";
+
 
 
 
