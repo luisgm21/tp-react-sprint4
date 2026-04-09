@@ -7,7 +7,7 @@ export const MOVIES = [
     director: "George Miller",
     genre: "Action",
     price: 12.99,
-    poster: "https://image.tmdb.org/t/p/original/fnY0VRsb31A5RLVCBjuR6EFUlo2.jpg"
+    poster: "/images/madmax.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const MOVIES = [
     director: "Alejandro González Iñárritu",
     genre: "Adventure",
     price: 17.49,
-    poster: "https://image.tmdb.org/t/p/original/k3Jh7J5GGMx1lmr7qmynRxOvOK5.jpg"
+    poster: "/images/revenant.jpg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const MOVIES = [
     director: "Pete Docter, Ronnie del Carmen",
     genre: "Animation",
     price: 9.99,
-    poster: "https://image.tmdb.org/t/p/original/sG3bHZWCMOZwhUq71WbPG9Vrrwc.jpg"
+    poster: "/images/insideout.jpg"
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const MOVIES = [
     director: "J.J. Abrams",
     genre: "Sci-Fi",
     price: 19.99,
-    poster: "https://image.tmdb.org/t/p/original/rCLw6YqGEoC0eknQEpQrj7a3kB7.jpg"
+    poster: "/images/starwars.jpg"
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const MOVIES = [
     director: "Ridley Scott",
     genre: "Sci-Fi",
     price: 14.99,
-    poster: "https://image.tmdb.org/t/p/original/hBRK1izFxIH3Nh6vax4ssOHSHVd.jpg"
+    poster: "/images/themartian.jpg"
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ export const MOVIES = [
     director: "Denis Villeneuve",
     genre: "Crime",
     price: 7.99,
-    poster: "https://image.tmdb.org/t/p/original/mpFhUy0aiDPIF0lN8Xpg0DeNQSD.jpg"
+    poster: "/images/sicario.jpg"
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ export const MOVIES = [
     director: "Alex Garland",
     genre: "Sci-Fi",
     price: 11.49,
-    poster: "https://image.tmdb.org/t/p/original/mQohkAkV1m7yT43UnYkgvmyKUoa.jpg"
+    poster: "/images/ex_machina.jpg"
   },
   {
     id: 8,
@@ -77,7 +77,7 @@ export const MOVIES = [
     director: "Lenny Abrahamson",
     genre: "Drama",
     price: 6.49,
-    poster: "https://image.tmdb.org/t/p/original/57aCjpdhzg9RnVMI1410jlpRTWr.jpg"
+    poster: "/images/room.jpg"
   },
   {
     id: 9,
@@ -87,6 +87,6 @@ export const MOVIES = [
     director: "Tom McCarthy",
     genre: "Drama",
     price: 15.99,
-    poster: "https://image.tmdb.org/t/p/original/oejKAjGVxmm8cJLiKQMGe2A2A4g.jpg"
+    poster: "/images/spotlight.jpg"
   }
 ];
