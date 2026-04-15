@@ -1,8 +1,7 @@
 
 
 import { useAppContext } from '../../context/AppContext'
-
-const GITHUB_URL = "https://github.com/luisgm21";
+import { API_CONFIG } from '../../config/env'
 
 const Footer = () => {
   const { isDarkMode, toggleDarkMode } = useAppContext()
@@ -22,7 +21,7 @@ const Footer = () => {
           </button>
 
           <a
-            href={GITHUB_URL}
+            href={API_CONFIG.GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-slate-500 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
