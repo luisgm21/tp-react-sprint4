@@ -10,24 +10,31 @@ import CharacterCard from '../components/featureAPI/CharacterCard'
 
 const RickandMorty = () => {
   const [characters, setCharacters] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
   const fetchData =  useCallback(async () => {
           try {
-            const { data } = await axios.get(API_CONFIG.RICKANDMORTY_CHARACTERS_API_URL)
-            setCharacters(data.results)
+            if(searchTerm.length > 0) {
+              const { data } = await axios.get(`${API_CONFIG.RICKANDMORTY_CHARACTERS_API_URL}?name=${searchTerm}`)
+              setCharacters(data.results)
+              return
+            } else {
+              const { data } = await axios.get(API_CONFIG.RICKANDMORTY_CHARACTERS_API_URL)
+              setCharacters(data.results)
+            }
+
           } catch (error) {
             console.error('Error fetching data:', error)
           }
-}, [])
+}, [searchTerm])
     
     useEffect(() => {
       fetchData()
-      console.log(characters)
     }, [fetchData])
 
   return (
     <section className="mx-auto w-full max-w-6xl space-y-8">
       <h1>Rick and Morty</h1>
-      <SearchBar />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {characters.map((character) => (
           <CharacterCard

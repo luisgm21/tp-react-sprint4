@@ -1,9 +1,10 @@
 import React from 'react'
 
-const SearchBar = () => {
+const SearchBar = ({ searchTerm, setSearchTerm }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes agregar la lógica para manejar la búsqueda, como obtener el valor del input y realizar una consulta a una API.
+    setSearchTerm(e.target.buscador.value) // Actualiza el estado del término de búsqueda con el valor del input
   }
   
     return (
@@ -19,6 +20,8 @@ const SearchBar = () => {
           id="buscador"
           type="text"
           placeholder="Buscar..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button
           type="submit"
