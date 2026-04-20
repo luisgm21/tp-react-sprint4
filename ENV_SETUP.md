@@ -14,7 +14,7 @@ El proyecto utiliza variables de entorno con Vite. Todas las variables deben com
 
 | Variable | Uso | Valor por Defecto |
 |----------|-----|------------------|
-| `VITE_RICKANDMORTY_API_URL` | URL de la API de Rick and Morty | `https://rickandmortyapi.com/api/character` |
+| `VITE_RICKANDMORTY_CHARACTERS_API_URL` | URL de la API de Rick and Morty | `https://rickandmortyapi.com/api/character` |
 | `VITE_GITHUB_URL` | URL del perfil de GitHub | Tu URL de GitHub |
 | `VITE_NODE_ENV` | Ambiente (development/production) | development |
 
@@ -30,7 +30,7 @@ cp .env.example .env.local
 3. Las variables están disponibles en el código vía:
 ```javascript
 import { API_CONFIG } from './config/env'
-// Usar: API_CONFIG.RICKANDMORTY_API_URL
+// Usar: API_CONFIG.RICKANDMORTY_CHARACTERS_API_URL
 ```
 
 ## Configuración en Netlify
@@ -40,7 +40,7 @@ import { API_CONFIG } from './config/env'
 1. Ve a **Site Settings** → **Build & Deploy** → **Environment**
 2. Haz clic en **Edit variables**
 3. Agrega cada variable:
-   - `VITE_RICKANDMORTY_API_URL`
+   - `VITE_RICKANDMORTY_CHARACTERS_API_URL`
    - `VITE_GITHUB_URL`
    - `VITE_NODE_ENV=production`
 4. Guarda y redeploy
@@ -60,7 +60,7 @@ Crea/actualiza `netlify.toml` en la raíz del proyecto:
   status = 200
 
 [context.production.environment]
-  VITE_RICKANDMORTY_API_URL = "https://rickandmortyapi.com/api/character"
+  VITE_RICKANDMORTY_CHARACTERS_API_URL = "https://rickandmortyapi.com/api/character"
   VITE_GITHUB_URL = "https://github.com/luisgm21"
   VITE_NODE_ENV = "production"
 
@@ -80,7 +80,7 @@ En el navegador, ve a la consola y verifica que se muestren las variables:
 
 ```javascript
 // En dev tools console
-console.log(import.meta.env.VITE_RICKANDMORTY_API_URL)
+console.log(import.meta.env.VITE_RICKANDMORTY_CHARACTERS_API_URL)
 ```
 
 ## Build & Deploy
