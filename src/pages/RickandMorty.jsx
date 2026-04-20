@@ -5,6 +5,7 @@ import { API_CONFIG } from '../config/env'
 import SearchBar from '../components/featureAPI/SearchBar'
 import { data } from 'react-router-dom'
 import CharacterCard from '../components/featureAPI/CharacterCard'
+import { toast } from 'react-toastify'
 
 
 
@@ -23,7 +24,19 @@ const RickandMorty = () => {
             }
 
           } catch (error) {
-            console.error('Error fetching data:', error)
+            console.log(error);
+            if (error.response) {
+              // El servidor respondió con un status fuera del rango 2xx
+              const mensaje = error.response.data?.error || error.response.data?.message || 'Error en la respuesta del servidor';
+              toast.error(`Codigo: ${error.response.status} - ${mensaje}`);
+            } else if (error.request) {
+              // La petición fue hecha pero no hubo respuesta
+              toast.error('No hubo respuesta del servidor');
+            } else {
+              // Otro tipo de error
+              toast.error('Error: ' + error.message);
+            }
+            setCharacters([]);
           }
 }, [searchTerm])
     
