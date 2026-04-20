@@ -68,6 +68,7 @@ const RickandMorty = () => {
           <CharacterCard
             key={character.id}
             name={character.name}
+            location={character.location?.name || 'Unknown'}
             status={character.status}
             species={character.species}
             gender={character.gender}

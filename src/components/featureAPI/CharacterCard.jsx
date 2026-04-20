@@ -8,7 +8,7 @@ import React from 'react';
  * @param {string} gender
  * @param {string} image
  */
-const CharacterCard = ({ name, status, species, gender, image }) => {
+const CharacterCard = ({ name, location, status, species, gender, image }) => {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden w-72 mx-auto border border-slate-200 dark:border-slate-700 transition-colors">
       <img
@@ -30,6 +30,10 @@ const CharacterCard = ({ name, status, species, gender, image }) => {
           <div className="flex gap-2 items-center">
             <span className="font-semibold text-slate-700 dark:text-slate-300">Gender:</span>
             <span className="text-slate-800 dark:text-slate-100">{gender}</span>
+          </div>
+          <div className="flex gap-2 items-center">
+            <span className="font-semibold text-slate-700 dark:text-slate-300">Location:</span>
+            <span className="text-slate-800 dark:text-slate-100">{location}</span>
           </div>
         </div>
       </div>
