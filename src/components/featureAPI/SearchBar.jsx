@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
 
 const SearchBar = ({ searchTerm, setSearchTerm }) => {
+  const [inputValue, setInputValue] = useState(searchTerm);
+
+  useEffect(() => {
+    // Cada vez que searchTerm externo cambie, sincroniza el input local
+    setInputValue(searchTerm);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchTerm(inputValue);
+    }, 500);
+    return () => clearTimeout(handler);
+  }, [inputValue, setSearchTerm]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica para manejar la búsqueda, como obtener el valor del input y realizar una consulta a una API.
-    setSearchTerm(e.target.buscador.value) // Actualiza el estado del término de búsqueda con el valor del input
-  }
-  
-    return (
+    setSearchTerm(inputValue);
+  };
+
+  return (
     <>
       <form
         onSubmit={handleSubmit}
@@ -20,8 +34,8 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
           id="buscador"
           type="text"
           placeholder="Buscar..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
         />
         <button
           type="submit"
@@ -31,7 +45,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
         </button>
       </form>
     </>
-  )
+  );
 }
 
 export default SearchBar
