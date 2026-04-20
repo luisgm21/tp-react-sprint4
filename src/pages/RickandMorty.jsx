@@ -11,7 +11,22 @@ import { toast } from 'react-toastify'
 
 const RickandMorty = () => {
   const [characters, setCharacters] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
+  // Leer el término de búsqueda desde localStorage al iniciar
+  const getInitialSearchTerm = () => {
+    try {
+      return localStorage.getItem('searchTerm') || '';
+    } catch {
+      return '';
+    }
+  };
+  const [searchTerm, setSearchTerm] = useState(getInitialSearchTerm());
+  // Guardar el término de búsqueda en localStorage cada vez que cambie
+  useEffect(() => {
+    try {
+      localStorage.setItem('searchTerm', searchTerm);
+    } catch {}
+  }, [searchTerm]);
+
   const fetchData =  useCallback(async () => {
           try {
             if(searchTerm.length > 0) {
